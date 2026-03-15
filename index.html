@@ -20,9 +20,9 @@
     <meta name="twitter:image" content="./assets/images/me.jpeg" />
 
     <title>Anthony Colon - Full-Stack Developer</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/TigerLogo.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/TigerLogo.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/TigerLogo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/TigerLogo.jpg">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/TigerLogo.jpg">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/TigerLogo.jpg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,7 +56,7 @@
     <header>
       <nav class="nav-container">
         <div class="nav-brand">
-          <img src="./assets/images/TigerLogo.png" alt="Anthony Colon" class="brand-logo">
+          <img src="./assets/images/TigerLogo.jpg" alt="Anthony Colon" class="brand-logo">
         </div>
         <div class="nav-buttons">
           <a href="#projects" class="nav-btn">WORK</a>
@@ -94,7 +94,7 @@
 
               <div class="hero-stats">
                 <div class="stat-box">
-                  <strong>6+</strong>
+                  <strong>7+</strong>
                   <span>PROJECTS SHIPPED</span>
                 </div>
                 <div class="stat-box">
@@ -121,62 +121,92 @@
 
       <section id="featured-project">
         <div class="container">
-          <div class="featured-badge"><i class="fas fa-star"></i> LATEST PROJECT</div>
+          <div class="featured-badge"><i class="fas fa-star"></i> FLAGSHIP PROJECT</div>
 
           <div class="featured-grid">
             <div class="featured-visual">
               <div class="project-image-wrapper">
-                <img src="./assets/images/Coqui-sing.png" alt="Coqui-Sing Vocal Training Platform Interface" class="featured-image">
-                <a href="https://anthonyjomarq.github.io/Coqui-Sing/" class="image-overlay" target="_blank">
-                  <span>LIVE DEMO →</span>
+                <img src="./assets/images/leavelane-landing.png" alt="LeaveLane SaaS Landing Page" class="featured-image">
+                <a href="https://www.leavelane.com" class="image-overlay" target="_blank">
+                  <span>VISIT LIVE SITE →</span>
                 </a>
               </div>
             </div>
 
             <div class="featured-content">
-              <h2 class="featured-title">COQUI-SING</h2>
-              <p class="featured-subtitle">AI-Powered Vocal Training Platform</p>
+              <h2 class="featured-title">LEAVELANE</h2>
+              <p class="featured-subtitle">Multi-Tenant SaaS • PTO & Team Management</p>
 
               <p class="featured-description">
-                Real-time pitch detection and vocal training platform built with React,
-                TypeScript, and Web Audio API. Features sub-50ms latency audio processing,
-                advanced spectral analysis, and comprehensive progress tracking.
+                A live SaaS platform for managing employee time-off requests, PTO balances,
+                and team scheduling. Built for small-to-mid-size companies — real users are
+                actively using this product in production.
+              </p>
+
+              <p class="featured-description">
+                I built the entire frontend — from the conversion-optimized landing page and
+                Stripe checkout through the authenticated dashboard, role-based access control,
+                and real-time data management.
               </p>
 
               <div class="highlight-boxes">
                 <div class="highlight-box">
-                  <strong>SUB-50MS</strong>
-                  <span>Audio Latency</span>
+                  <strong>LIVE</strong>
+                  <span>In Production</span>
                 </div>
                 <div class="highlight-box">
-                  <strong>8192-PT</strong>
-                  <span>FFT Analysis</span>
+                  <strong>MULTI-TENANT</strong>
+                  <span>B2B Architecture</span>
                 </div>
                 <div class="highlight-box">
-                  <strong>60 FPS</strong>
-                  <span>Visualization</span>
+                  <strong>ROLE-BASED</strong>
+                  <span>Access Control</span>
                 </div>
               </div>
 
               <div class="tech-tags">
-                <span class="tech-tag">REACT 18</span>
+                <span class="tech-tag">REACT 19</span>
                 <span class="tech-tag">TYPESCRIPT</span>
-                <span class="tech-tag">WEB AUDIO API</span>
-                <span class="tech-tag">REDUX TOOLKIT</span>
-                <span class="tech-tag">WEB WORKERS</span>
+                <span class="tech-tag">REACT QUERY</span>
+                <span class="tech-tag">MANTINE</span>
+                <span class="tech-tag">STRIPE</span>
+                <span class="tech-tag">FIREBASE AUTH</span>
               </div>
 
               <div class="featured-links">
-                <a href="https://anthonyjomarq.github.io/Coqui-Sing/" class="btn btn-primary" target="_blank">
-                  LIVE DEMO
-                </a>
-                <a href="https://github.com/anthonyjomarq/Coqui-Sing" class="btn btn-outline" target="_blank">
-                  VIEW CODE
+                <a href="https://www.leavelane.com" class="btn btn-primary" target="_blank">
+                  VISIT LIVE SITE
                 </a>
               </div>
 
               <div class="project-note">
-                <p>🐸 Named after Puerto Rico's Coquí frog—known for its distinctive singing</p>
+                <p>Built as Co-Founder & Frontend Engineer at Tigrant. Backend (Go/PostgreSQL) developed by collaborating engineer.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="featured-screenshots">
+            <h3 class="screenshots-title">APP SCREENSHOTS</h3>
+            <div class="screenshots-grid">
+              <div class="screenshot-item">
+                <img src="./assets/images/dashboard.png" alt="LeaveLane Dashboard — PTO balances, recent requests, and pending approvals" class="clickable-image" loading="lazy">
+                <div class="screenshot-label">DASHBOARD</div>
+              </div>
+              <div class="screenshot-item">
+                <img src="./assets/images/teammanagement.png" alt="Team Management — role editing, member controls" class="clickable-image" loading="lazy">
+                <div class="screenshot-label">TEAM MANAGEMENT</div>
+              </div>
+              <div class="screenshot-item">
+                <img src="./assets/images/approvalflow.png" alt="Approval Flow — manager review queue" class="clickable-image" loading="lazy">
+                <div class="screenshot-label">APPROVALS</div>
+              </div>
+              <div class="screenshot-item">
+                <img src="./assets/images/auditlogs.png" alt="Audit Logs — filterable event history" class="clickable-image" loading="lazy">
+                <div class="screenshot-label">AUDIT LOGS</div>
+              </div>
+              <div class="screenshot-item">
+                <img src="./assets/images/mobileresponsiveness.png" alt="Mobile Responsive Design" class="clickable-image" loading="lazy">
+                <div class="screenshot-label">MOBILE</div>
               </div>
             </div>
           </div>
@@ -188,6 +218,29 @@
           <h2 class="section-title">MORE WORK</h2>
 
           <div class="projects-grid">
+            <div class="project-card card-audio">
+              <div class="project-card-image">
+                <img src="./assets/images/Coqui-sing.png" alt="Coqui-Sing Vocal Training Platform" loading="lazy">
+              </div>
+              <div class="project-card-content">
+                <div class="project-card-header">
+                  <h3>Coqui-Sing</h3>
+                  <span class="project-tag tag-audio">AUDIO / AI</span>
+                </div>
+                <p>Real-time pitch detection and vocal training platform with sub-50ms audio processing, 8192-point FFT analysis, and 60 FPS visualization.</p>
+                <div class="tech-stack-tags">
+                  <span>REACT 18</span>
+                  <span>TYPESCRIPT</span>
+                  <span>WEB AUDIO API</span>
+                  <span>WEB WORKERS</span>
+                </div>
+                <div class="project-card-links">
+                  <a href="https://anthonyjomarq.github.io/Coqui-Sing/" class="btn btn-small" target="_blank">LIVE DEMO</a>
+                  <a href="https://github.com/anthonyjomarq/Coqui-Sing" class="btn btn-small btn-outline-small" target="_blank">CODE</a>
+                </div>
+              </div>
+            </div>
+
             <div class="project-card card-mobile">
               <div class="project-card-image">
                 <img src="./assets/images/Main dashboard.jpeg" alt="MuscleMap Workout Tracker Dashboard" loading="lazy">
@@ -204,7 +257,7 @@
                   <span>EXPO</span>
                   <span>REDUX</span>
                 </div>
-                <a href="https://github.com/anthonyjomarq/MuscleMap-App" class="btn btn-small" target="_blank">VIEW CODE</a>
+                <a href="https://github.com/anthonyjomarq/MuscleMap-Demo" class="btn btn-small" target="_blank">VIEW CODE</a>
               </div>
             </div>
 
@@ -268,7 +321,7 @@
 
             <div class="project-card card-api">
               <div class="project-card-image">
-                <img src="./assets/images/route-optimizer.png" alt="Route Optimizer Application Interface" loading="lazy">
+                <img src="./assets/images/route-optimizer.jpg" alt="Route Optimizer Application Interface" loading="lazy">
               </div>
               <div class="project-card-content">
                 <div class="project-card-header">
@@ -302,9 +355,10 @@
                 or leading teams to victory.
               </p>
               <p>
-                Currently working as an Implementations Specialist at Dynamics Payments,
-                where I deploy POS systems and solve complex technical challenges for
-                enterprise clients.
+                Co-Founder & Frontend Engineer at Tigrant, where I'm building
+                LeaveLane—a live multi-tenant SaaS platform with real users.
+                Also working as an Implementations Specialist at Dynamics Payments,
+                deploying POS systems for enterprise clients.
               </p>
             </div>
 
@@ -370,7 +424,7 @@
               </div>
 
               <div class="gallery-item">
-                <img src="./assets/images/Japan2.jpeg"
+                <img src="./assets/images/Japan2.jpg"
                      alt="River Adventure in Japan"
                      class="clickable-image">
                 <div class="gallery-label"><i class="fas fa-water"></i> JAPAN RIVER</div>
@@ -385,6 +439,18 @@
           <h2 class="section-title">WORK HISTORY</h2>
 
           <div class="experience-timeline">
+            <div class="timeline-item">
+              <div class="date-badge">JAN 2026 - PRESENT</div>
+              <h3>CO-FOUNDER & FRONTEND ENGINEER</h3>
+              <p class="company">Tigrant • San Juan, PR (Remote-First SaaS Startup)</p>
+              <ul>
+                <li>Architecting production React/TypeScript SaaS platform with Mantine UI, React Query, and cookie-based authentication supporting multi-tenant B2B infrastructure</li>
+                <li>Designing type-safe API integrations, role-based access control, and responsive mobile-first interfaces for enterprise workflow applications</li>
+                <li>Collaborating on full-stack system design including PostgreSQL schema modeling, RESTful API contracts, and Go backend services</li>
+                <li>Leading frontend architecture decisions, component library design, and cross-team API contract negotiations with backend partner</li>
+              </ul>
+            </div>
+
             <div class="timeline-item">
               <div class="date-badge">NOV 2024 - PRESENT</div>
               <h3>IMPLEMENTATIONS SPECIALIST I</h3>
@@ -432,11 +498,12 @@
               <h4><i class="fab fa-react"></i> FRAMEWORKS</h4>
               <div class="skill-tags-grid">
                 <span class="skill-tag">REACT</span>
+                <span class="skill-tag">REACT QUERY</span>
+                <span class="skill-tag">MANTINE</span>
                 <span class="skill-tag">NODE.JS</span>
                 <span class="skill-tag">EXPRESS</span>
                 <span class="skill-tag">REDUX</span>
-                <span class="skill-tag">TAILWIND</span>
-                <span class="skill-tag">BOOTSTRAP</span>
+                <span class="skill-tag">VITE</span>
               </div>
             </div>
 
@@ -445,9 +512,10 @@
               <div class="skill-tags-grid">
                 <span class="skill-tag">GIT</span>
                 <span class="skill-tag">POSTGRESQL</span>
+                <span class="skill-tag">FIREBASE</span>
+                <span class="skill-tag">STRIPE</span>
+                <span class="skill-tag">SENTRY</span>
                 <span class="skill-tag">DOCKER</span>
-                <span class="skill-tag">AWS</span>
-                <span class="skill-tag">WEB AUDIO API</span>
                 <span class="skill-tag">REST APIs</span>
               </div>
             </div>
@@ -518,7 +586,7 @@
       <div class="container">
         <div class="footer-content">
           <div class="footer-brand">
-            <img src="./assets/images/TigerLogo.png" alt="Anthony Colon" class="brand-logo">
+            <img src="./assets/images/TigerLogo.jpg" alt="Anthony Colon" class="brand-logo">
             <span>Anthony Colon</span>
           </div>
           <div class="footer-links">
@@ -528,7 +596,7 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; 2025 Anthony J. Colon Dominguez. All rights reserved.</p>
+          <p>&copy; 2026 Anthony J. Colon Dominguez. All rights reserved.</p>
         </div>
       </div>
     </footer>

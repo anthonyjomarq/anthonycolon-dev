@@ -70,6 +70,38 @@ function initializeDarkMode() {
 function initializeContactForm() {
   const contactForm = document.getElementById('contactForm');
   if (!contactForm) return;
+
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'SENDING...';
+    submitBtn.disabled = true;
+
+    const formData = new FormData(contactForm);
+
+    fetch(contactForm.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then((response) => {
+      if (response.ok) {
+        showSuccessNotification();
+        contactForm.reset();
+      } else {
+        showErrorNotification();
+      }
+    })
+    .catch(() => {
+      showErrorNotification();
+    })
+    .finally(() => {
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+    });
+  });
 }
 
 function initializeBackToTop() {
@@ -150,12 +182,10 @@ function showSuccessNotification() {
   notification.className = 'success-notification';
   notification.innerHTML = `
     <div class="notification-content">
-      <strong>✓ MESSAGE SENT!</strong>
+      <strong>MESSAGE SENT!</strong>
       <p>Thanks for reaching out! I'll get back to you soon.</p>
     </div>
   `;
-
-  document.body.appendChild(notification);
 
   const style = document.createElement('style');
   style.textContent = `
@@ -163,13 +193,13 @@ function showSuccessNotification() {
       position: fixed;
       top: 2rem;
       right: 2rem;
-      background: var(--accent-cyan);
-      border: var(--border-thick);
-      box-shadow: var(--shadow-hard);
+      background: #2ECC71;
+      border: 4px solid #000000;
+      box-shadow: 8px 8px 0 #000000;
       padding: 1.5rem;
       max-width: 400px;
       z-index: 10000;
-      animation: slideIn 0.2s ease;
+      animation: slideIn 0.3s ease forwards;
     }
 
     .success-notification .notification-content strong {
@@ -178,23 +208,38 @@ function showSuccessNotification() {
       font-size: 1rem;
       text-transform: uppercase;
       margin-bottom: 0.5rem;
-      color: var(--black);
+      color: #000000;
     }
 
     .success-notification .notification-content p {
       margin: 0;
-      color: var(--black);
+      color: #000000;
       font-size: 0.875rem;
+    }
+
+    .success-notification.fade-out {
+      animation: slideOut 0.3s ease forwards;
     }
 
     @keyframes slideIn {
       from {
-        transform: translateX(100%);
+        transform: translateX(120%);
         opacity: 0;
       }
       to {
         transform: translateX(0);
         opacity: 1;
+      }
+    }
+
+    @keyframes slideOut {
+      from {
+        transform: translateX(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateX(120%);
+        opacity: 0;
       }
     }
 
@@ -207,14 +252,38 @@ function showSuccessNotification() {
     }
   `;
   document.head.appendChild(style);
-
-  setTimeout(() => notification.classList.add('show'), 100);
+  document.body.appendChild(notification);
 
   setTimeout(() => {
-    notification.style.animation = 'slideOut 0.2s ease';
+    notification.classList.add('fade-out');
     setTimeout(() => {
-      document.body.removeChild(notification);
-    }, 200);
+      if (notification.parentNode) {
+        notification.parentNode.removeChild(notification);
+      }
+    }, 300);
+  }, 5000);
+}
+
+function showErrorNotification() {
+  const notification = document.createElement('div');
+  notification.className = 'success-notification';
+  notification.style.background = '#FF6B6B';
+  notification.innerHTML = `
+    <div class="notification-content">
+      <strong>FAILED TO SEND</strong>
+      <p>Something went wrong. Please try emailing me directly.</p>
+    </div>
+  `;
+
+  document.body.appendChild(notification);
+
+  setTimeout(() => {
+    notification.classList.add('fade-out');
+    setTimeout(() => {
+      if (notification.parentNode) {
+        notification.parentNode.removeChild(notification);
+      }
+    }, 300);
   }, 5000);
 }
 
