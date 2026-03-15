@@ -4,13 +4,13 @@ Professional portfolio website showcasing my work as a full-stack developer.
 
 ## Live Site
 
-https://anthonyjomarq.github.io/Personal-Site---Capstone-2/
+https://anthonyjomarq.github.io/anthonycolon-dev/
 
 ## Features
 
 - Responsive design optimized for all devices
-- Dark mode support with localStorage persistence
-- Fast page load times with vanilla JavaScript
+- Dark mode support with localStorage persistimes with vanilla JavaScriptence
+- Fast page load t
 - Accessible navigation and form validation
 - SEO optimized with meta tags and structured data
 
