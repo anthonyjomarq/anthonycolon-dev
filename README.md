@@ -1,6 +1,6 @@
 # Personal Portfolio
 
-Professional portfolio website showcasing my work as a full-stack developer.
+Professional portfolio website showcasing my work as a full-stack developer and Co-Founder at Tigrant.
 
 ## Live Site
 
@@ -9,10 +9,11 @@ https://anthonyjomarq.github.io/anthonycolon-dev/
 ## Features
 
 - Responsive design optimized for all devices
-- Dark mode support with localStorage persistimes with vanilla JavaScriptence
-- Fast page load t
+- Dark mode support with localStorage persistence
+- Fast page load times with vanilla JavaScript and optimized images
 - Accessible navigation and form validation
 - SEO optimized with meta tags and structured data
+- Contact form powered by FormSubmit
 
 ## Tech Stack
 
@@ -20,15 +21,23 @@ https://anthonyjomarq.github.io/anthonycolon-dev/
 - CSS3 (Grid, Flexbox, Custom Properties)
 - JavaScript ES6+
 - Google Fonts (Space Grotesk, Inter, JetBrains Mono)
+- FormSubmit (contact form)
 
-## Featured Project
+## Flagship Project
 
-**Coqui-Sing** - AI-powered vocal training platform with real-time pitch detection
+**LeaveLane** - Multi-tenant SaaS platform for managing employee time-off requests, PTO balances, and team scheduling.
 
-- Live Demo: https://anthonyjomarq.github.io/Coqui-Sing/
-- Repository: https://github.com/anthonyjomarq/Coqui-Sing
+- Live Site: https://www.leavelane.com
+- Stack: React 19, TypeScript, React Query, Mantine, Stripe, Firebase Auth
+- Role: Co-Founder & Frontend Engineer
 
-Technologies: React 18, TypeScript, Web Audio API, Redux Toolkit, Web Workers
+## Other Projects
+
+- **MuscleMap** - Gym workout tracker (Swift, SwiftUI, SwiftData)
+- **SwiftTiger** - iOS Safari extension for campus navigation (Swift, MapKit)
+- **Media Review** - Full-stack media review platform (React, Node.js, PostgreSQL)
+- **Predictive Traffic Model** - ML-based traffic accident prediction (Python, scikit-learn)
+- **Route Optimizer** - AI route optimization with real-time traffic (Python, Google Maps API)
 
 ## Project Structure
 
