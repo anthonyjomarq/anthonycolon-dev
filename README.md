@@ -4,7 +4,7 @@ Professional portfolio website showcasing my work as a full-stack developer and 
 
 ## Live Site
 
-https://anthonyjomarq.github.io/Personal-Site---Capstone-2/
+https://anthonyjomarq.github.io/anthonycolon-dev/
 
 ## Features
 
@@ -33,7 +33,7 @@ https://anthonyjomarq.github.io/Personal-Site---Capstone-2/
 ## Other Projects
 
 - **Coqui-Sing** — Real-time pitch detection / vocal training (React 18, TypeScript, Web Audio API, Web Workers)
-- **MuscleMap** — React Native workout tracker with anatomical muscle visualization (React Native, TypeScript, Expo, Redux) — [Privacy Policy](https://anthonyjomarq.github.io/Personal-Site---Capstone-2/musclemap/privacy-policy.html)
+- **MuscleMap** — React Native workout tracker with anatomical muscle visualization (React Native, TypeScript, Expo, Redux) — [Privacy Policy](https://anthonyjomarq.github.io/anthonycolon-dev/musclemap/privacy-policy.html)
 - **SwiftTiger** — Field service management system (React 18, Node.js, PostgreSQL, Docker)
 - **Media Review Tracker** — Full-stack media tracking with multi-API integration (PostgreSQL, JavaScript)
 - **Predictive Traffic Model** — ML-based traffic accident prediction (Python, Pandas)
