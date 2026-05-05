@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   initializeNavigation();
   initializeDarkMode();
-  initializeContactForm();
   initializeBackToTop();
   initializeSmoothScroll();
   initializeLightbox();
@@ -26,13 +25,7 @@ function initializeNavigation() {
 
     navButtons.forEach(btn => {
       const href = btn.getAttribute('href');
-      if (href === '#' + current) {
-        btn.style.background = 'var(--black)';
-        btn.style.color = 'var(--white)';
-      } else {
-        btn.style.background = 'var(--white)';
-        btn.style.color = 'var(--black)';
-      }
+      btn.classList.toggle('is-active', href === '#' + current);
     });
   }, 100));
 }
@@ -65,43 +58,6 @@ function initializeDarkMode() {
     body.classList.remove('dark-mode');
     localStorage.setItem('theme', 'light-mode');
   }
-}
-
-function initializeContactForm() {
-  const contactForm = document.getElementById('contactForm');
-  if (!contactForm) return;
-
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'SENDING...';
-    submitBtn.disabled = true;
-
-    const formData = new FormData(contactForm);
-
-    fetch(contactForm.action, {
-      method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    })
-    .then((response) => {
-      if (response.ok) {
-        showSuccessNotification();
-        contactForm.reset();
-      } else {
-        showErrorNotification();
-      }
-    })
-    .catch(() => {
-      showErrorNotification();
-    })
-    .finally(() => {
-      submitBtn.textContent = originalText;
-      submitBtn.disabled = false;
-    });
-  });
 }
 
 function initializeBackToTop() {
@@ -152,11 +108,6 @@ function initializeSmoothScroll() {
   });
 }
 
-function isValidEmail(email) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-}
-
 function throttle(func, delay) {
   let timeoutId;
   let lastExecTime = 0;
@@ -177,124 +128,6 @@ function throttle(func, delay) {
   };
 }
 
-function showSuccessNotification() {
-  const notification = document.createElement('div');
-  notification.className = 'success-notification';
-  notification.innerHTML = `
-    <div class="notification-content">
-      <strong>MESSAGE SENT!</strong>
-      <p>Thanks for reaching out! I'll get back to you soon.</p>
-    </div>
-  `;
-
-  const style = document.createElement('style');
-  style.textContent = `
-    .success-notification {
-      position: fixed;
-      top: 2rem;
-      right: 2rem;
-      background: #2ECC71;
-      border: 4px solid #000000;
-      box-shadow: 8px 8px 0 #000000;
-      padding: 1.5rem;
-      max-width: 400px;
-      z-index: 10000;
-      animation: slideIn 0.3s ease forwards;
-    }
-
-    .success-notification .notification-content strong {
-      display: block;
-      font-family: var(--font-heading);
-      font-size: 1rem;
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-      color: #000000;
-    }
-
-    .success-notification .notification-content p {
-      margin: 0;
-      color: #000000;
-      font-size: 0.875rem;
-    }
-
-    .success-notification.fade-out {
-      animation: slideOut 0.3s ease forwards;
-    }
-
-    @keyframes slideIn {
-      from {
-        transform: translateX(120%);
-        opacity: 0;
-      }
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-
-    @keyframes slideOut {
-      from {
-        transform: translateX(0);
-        opacity: 1;
-      }
-      to {
-        transform: translateX(120%);
-        opacity: 0;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .success-notification {
-        top: 1rem;
-        right: 1rem;
-        left: 1rem;
-      }
-    }
-  `;
-  document.head.appendChild(style);
-  document.body.appendChild(notification);
-
-  setTimeout(() => {
-    notification.classList.add('fade-out');
-    setTimeout(() => {
-      if (notification.parentNode) {
-        notification.parentNode.removeChild(notification);
-      }
-    }, 300);
-  }, 5000);
-}
-
-function showErrorNotification() {
-  const notification = document.createElement('div');
-  notification.className = 'success-notification';
-  notification.style.background = '#FF6B6B';
-  notification.innerHTML = `
-    <div class="notification-content">
-      <strong>FAILED TO SEND</strong>
-      <p>Something went wrong. Please try emailing me directly.</p>
-    </div>
-  `;
-
-  document.body.appendChild(notification);
-
-  setTimeout(() => {
-    notification.classList.add('fade-out');
-    setTimeout(() => {
-      if (notification.parentNode) {
-        notification.parentNode.removeChild(notification);
-      }
-    }, 300);
-  }, 5000);
-}
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    if (document.activeElement) {
-      document.activeElement.blur();
-    }
-  }
-});
-
 function initializeLightbox() {
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
@@ -307,6 +140,11 @@ function initializeLightbox() {
 
   let clickableImages = [];
   let currentImageIndex = 0;
+  let lastFocusedElement = null;
+
+  function isOpen() {
+    return lightbox.style.display === 'block';
+  }
 
   function updateClickableImages() {
     clickableImages = Array.from(document.querySelectorAll('.clickable-image'));
@@ -324,15 +162,20 @@ function initializeLightbox() {
   }
 
   function openLightbox(img) {
+    lastFocusedElement = document.activeElement;
     lightbox.style.display = 'block';
     lightboxImg.src = img.src;
     lightboxCaption.textContent = img.alt || '';
     document.body.style.overflow = 'hidden';
+    if (closeBtn) closeBtn.focus();
   }
 
   function closeLightbox() {
     lightbox.style.display = 'none';
     document.body.style.overflow = 'auto';
+    if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+      lastFocusedElement.focus();
+    }
   }
 
   function showNextImage() {
@@ -347,18 +190,9 @@ function initializeLightbox() {
     lightboxCaption.textContent = clickableImages[currentImageIndex].alt || '';
   }
 
-  // Event Listeners
-  if (closeBtn) {
-    closeBtn.addEventListener('click', closeLightbox);
-  }
-
-  if (nextBtn) {
-    nextBtn.addEventListener('click', showNextImage);
-  }
-
-  if (prevBtn) {
-    prevBtn.addEventListener('click', showPrevImage);
-  }
+  if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+  if (nextBtn) nextBtn.addEventListener('click', showNextImage);
+  if (prevBtn) prevBtn.addEventListener('click', showPrevImage);
 
   lightbox.addEventListener('click', function(e) {
     if (e.target === lightbox) {
@@ -367,24 +201,29 @@ function initializeLightbox() {
   });
 
   document.addEventListener('keydown', function(e) {
-    if (lightbox.style.display === 'block') {
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowRight') showNextImage();
-      if (e.key === 'ArrowLeft') showPrevImage();
+    if (!isOpen()) return;
+
+    if (e.key === 'Escape') {
+      closeLightbox();
+      return;
+    }
+    if (e.key === 'ArrowRight') showNextImage();
+    if (e.key === 'ArrowLeft') showPrevImage();
+
+    if (e.key === 'Tab') {
+      const focusable = [closeBtn, prevBtn, nextBtn].filter(Boolean);
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     }
   });
 
   makeImagesClickable();
-}
-
-if ('performance' in window) {
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      const perfData = performance.getEntriesByType('navigation')[0];
-      if (perfData) {
-        console.log(`⚡ Page load time: ${Math.round(perfData.loadEventEnd - perfData.loadEventStart)}ms`);
-        console.log(`🚀 Portfolio ready!`);
-      }
-    }, 0);
-  });
 }

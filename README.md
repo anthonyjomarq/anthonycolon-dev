@@ -4,16 +4,16 @@ Professional portfolio website showcasing my work as a full-stack developer and 
 
 ## Live Site
 
-https://anthonyjomarq.github.io/anthonycolon-dev/
+https://anthonyjomarq.github.io/Personal-Site---Capstone-2/
 
 ## Features
 
 - Responsive design optimized for all devices
-- Dark mode support with localStorage persistence
-- Fast page load times with vanilla JavaScript and optimized images
-- Accessible navigation and form validation
-- SEO optimized with meta tags and structured data
-- Contact form powered by FormSubmit
+- Dark mode with `prefers-color-scheme` detection and `localStorage` persistence
+- Vanilla JavaScript — no framework, no build step
+- Lightbox photo viewer with keyboard navigation and focus trap
+- Accessible: skip-to-content link, focus rings, reduced-motion support
+- SEO: meta tags, JSON-LD structured data, sitemap, robots.txt
 
 ## Tech Stack
 
@@ -21,11 +21,10 @@ https://anthonyjomarq.github.io/anthonycolon-dev/
 - CSS3 (Grid, Flexbox, Custom Properties)
 - JavaScript ES6+
 - Google Fonts (Space Grotesk, Inter, JetBrains Mono)
-- FormSubmit (contact form)
 
 ## Flagship Project
 
-**LeaveLane** - Multi-tenant SaaS platform for managing employee time-off requests, PTO balances, and team scheduling.
+**LeaveLane** — Multi-tenant SaaS platform for managing employee time-off requests, PTO balances, and team scheduling.
 
 - Live Site: https://www.leavelane.com
 - Stack: React 19, TypeScript, React Query, Mantine, Stripe, Firebase Auth
@@ -33,11 +32,12 @@ https://anthonyjomarq.github.io/anthonycolon-dev/
 
 ## Other Projects
 
-- **MuscleMap** - Gym workout tracker (Swift, SwiftUI, SwiftData)
-- **SwiftTiger** - iOS Safari extension for campus navigation (Swift, MapKit)
-- **Media Review** - Full-stack media review platform (React, Node.js, PostgreSQL)
-- **Predictive Traffic Model** - ML-based traffic accident prediction (Python, scikit-learn)
-- **Route Optimizer** - AI route optimization with real-time traffic (Python, Google Maps API)
+- **Coqui-Sing** — Real-time pitch detection / vocal training (React 18, TypeScript, Web Audio API, Web Workers)
+- **MuscleMap** — React Native workout tracker with anatomical muscle visualization (React Native, TypeScript, Expo, Redux) — [Privacy Policy](https://anthonyjomarq.github.io/Personal-Site---Capstone-2/musclemap/privacy-policy.html)
+- **SwiftTiger** — Field service management system (React 18, Node.js, PostgreSQL, Docker)
+- **Media Review Tracker** — Full-stack media tracking with multi-API integration (PostgreSQL, JavaScript)
+- **Predictive Traffic Model** — ML-based traffic accident prediction (Python, Pandas)
+- **Route Optimizer** — Multi-stop route optimization (Node.js, Google Maps API)
 
 ## Project Structure
 
@@ -46,7 +46,11 @@ https://anthonyjomarq.github.io/anthonycolon-dev/
 ├── index.html
 ├── style.css
 ├── script.js
+├── robots.txt
+├── sitemap.xml
 ├── README.md
+├── musclemap/
+│   └── privacy-policy.html
 └── assets/
     └── images/
 ```
